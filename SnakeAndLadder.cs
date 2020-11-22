@@ -31,8 +31,8 @@ namespace SnakeAndLadderProgram
                         Action = "Snake";
                         position = position - dice;
                         break;
-                    case 3:
-                        Action = " NoPlay";
+                    case 0:
+                        Action = "NoPlay";
                         position = position;
                         break;
                      }
