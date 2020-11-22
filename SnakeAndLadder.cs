@@ -17,26 +17,33 @@ namespace SnakeAndLadderProgram
                 if (position <= ENDINGPOSITION)
                 {
                     Console.WriteLine("welcome to single player game");
-                    Random random = new Random();
-                    int dice = (random.Next(0, 6) + 1);
-                    Console.WriteLine("The Dice value is : " + dice);
-                    int options = random.Next(0, 3);
-                    switch (options)
+                    while (position < ENDINGPOSITION)
                     {
-                    case 1:
-                        Action = "Ladder";
-                        position = position + dice;
-                        break;
-                    case 2:
-                        Action = "Snake";
-                        position = position - dice;
-                        break;
-                    case 0:
-                        Action = "NoPlay";
-                        position = position;
-                        break;
-                     }
-                Console.WriteLine("Dice value is : " + dice + " For " + Action + " and the Current position is : " + position);
+                        Random random = new Random();
+                        int dice = (random.Next(0, 6) + 1);
+                        Console.WriteLine("The Dice value is : " + dice);
+                        int options = random.Next(0, 3);
+                        switch (options)
+                        {
+                            case 1:
+                                Action = "Ladder";
+                                position = position + dice;
+                            break;
+                            case 2:
+                                Action = "Snake";
+                                position = position - dice;
+                                if(position < 0)
+                                {
+                                    position = 0;
+                                }
+                            break;
+                            case 0:
+                                Action = "NoPlay";
+                                position = position;
+                            break;
+                        }
+                        Console.WriteLine("Dice value is : " + dice + " For " + Action + " and the Current position is : " + position);
+                    }
                 }
              }
         static void Main(string[] args)
