@@ -10,10 +10,11 @@ namespace SnakeAndLadderProgram
        public static int SNAKE = 2;
        public static int NOPLAY = 0;
        public static int PLAYER = 0;
-       public static String Action;
+       public static String action;
             public static void gameplayed()
              {
                 int position = STARTINGPOSITION;
+                int diceCount = 0;
                 if (position <= ENDINGPOSITION)
                 {
                     Console.WriteLine("welcome to single player game");
@@ -26,7 +27,7 @@ namespace SnakeAndLadderProgram
                         switch (options)
                         {
                             case 1:
-                                Action = "Ladder";
+                                action = "Ladder";
                                 int currentPosition = position + dice;
                                  if (currentPosition > ENDINGPOSITION)
                                 {
@@ -38,7 +39,7 @@ namespace SnakeAndLadderProgram
                                 }
                             break;
                             case 2:
-                                Action = "Snake";
+                                action = "Snake";
                                 position = position - dice;
                                 if(position < 0)
                                 {
@@ -46,11 +47,13 @@ namespace SnakeAndLadderProgram
                                 }
                             break;
                             case 0:
-                                Action = "NoPlay";
+                                action = "NoPlay";
                                 position = position;
                             break;
                         }
-                        Console.WriteLine("Dice value is : " + dice + " For " + Action + " and the Current position is : " + position);
+                        Console.WriteLine("Dice value is : " + dice + " For " + action + " and the Current position is : " + position);
+                        diceCount++;
+                        Console.WriteLine("The Dice count is: " + diceCount);
                     }
                 }
              }
