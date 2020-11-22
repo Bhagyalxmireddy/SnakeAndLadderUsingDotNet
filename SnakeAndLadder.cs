@@ -17,7 +17,7 @@ namespace SnakeAndLadderProgram
                 if (position <= ENDINGPOSITION)
                 {
                     Console.WriteLine("welcome to single player game");
-                    while (position < ENDINGPOSITION)
+                    while (position != ENDINGPOSITION)
                     {
                         Random random = new Random();
                         int dice = (random.Next(0, 6) + 1);
@@ -27,7 +27,15 @@ namespace SnakeAndLadderProgram
                         {
                             case 1:
                                 Action = "Ladder";
-                                position = position + dice;
+                                int currentPosition = position + dice;
+                                 if (currentPosition > ENDINGPOSITION)
+                                {
+                                    Console.WriteLine("The Player Position is more than 100 so player is stay in the same position");
+                                 }
+                                else
+                                {
+                                    position = position + dice;
+                                }
                             break;
                             case 2:
                                 Action = "Snake";
